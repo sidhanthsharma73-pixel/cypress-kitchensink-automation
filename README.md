@@ -14,8 +14,6 @@ The framework includes:
 * API Automation
 * Git Version Control
 
----
-
 ## Project Structure
 
 ```text
@@ -37,8 +35,6 @@ cypress
 └── support
     └── commands.js
 ```
-
----
 
 ## Features Implemented
 
@@ -63,8 +59,6 @@ cypress
 * Hooks using beforeEach()
 * Reusable Page Objects
 
----
-
 ## Technologies Used
 
 * Cypress
@@ -72,8 +66,6 @@ cypress
 * Node.js
 * Git
 * GitHub
-
----
 
 ## Running The Project
 
@@ -94,8 +86,6 @@ npx cypress open
 ```bash
 npx cypress run
 ```
-
----
 
 ## Author
 
