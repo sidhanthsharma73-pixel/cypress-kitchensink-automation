@@ -2,35 +2,57 @@ describe('API Testing', () => {
 
   it('should get a post successfully', () => {
 
-    cy.request('https://jsonplaceholder.typicode.com/posts/1')
-      .then((response) => {
+        cy.request(
+            'GET',
+            'https://jsonplaceholder.typicode.com/posts/1'
+        )
+        .then((response) => {
+
+            expect(response.status).to.eq(200)
+
+            expect(response.body.id).to.eq(1)
+
+            expect(response.body.userId).to.eq(1)
+
+        })
+
+
+
+  it('should update a post', () => {
+
+    cy.request(
+        'PUT',
+        'https://jsonplaceholder.typicode.com/posts/1',
+        {
+            id: 1,
+            title: 'updated title',
+            body: 'updated body',
+            userId: 1
+        }
+    ).then((response) => {
 
         expect(response.status).to.eq(200)
 
-        expect(response.body.id).to.eq(1)
+        expect(response.body.title)
+            .to.eq('updated title')
 
-      })
+    })
 
-  })
-  it('should create a new post successfully', () => {
+})
 
-    cy.request('POST', 'https://jsonplaceholder.typicode.com/posts', {
+  it('should delete a post', () => {
 
-      title: 'foo',
+    cy.request(
+        'DELETE',
+        'https://jsonplaceholder.typicode.com/posts/1'
+    ).then((response) => {
 
-      body: 'bar',
+        expect(response.status).to.eq(200)
 
-      userId: 1
+    })
 
-    }).then((response) => {
+})
 
-      expect(response.status).to.eq(201)
+})
 
-      expect(response.body.title).to.eq('foo')
-
-      expect(response.body.body).to.eq('bar')
-
-      expect(response.body.userId).to.eq(1)
-    
-
-    })})})
+})
